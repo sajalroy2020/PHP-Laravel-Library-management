@@ -52,18 +52,23 @@ class UserController extends Controller
     }
 
     public function Logout(){
-        $activeID = Auth::user()->id;
         if(Auth::check()){
-            User::where('id', $activeID)->update(['is_active'=>false]);
+            User::where('id', Auth::id())->update(['is_active'=>false]);
             Auth::logout();
+            return redirect()->route('home')->with('SUCCESS_MESSAGE', 'you have been successfully log out');
         }
-        return redirect()->route('home')->with('SUCCESS_MESSAGE', 'you have been successfully log out');
+        return redirect()->route('home');
      }
 
 
      public function user(){
         $data['users']= User::get();
         return view('dashboard.user', $data);
+     }
+
+     public function edit($id){
+        $data['editUser']= User::find($id);
+        return view('dashboard.userEdit', $data);
      }
 
 }

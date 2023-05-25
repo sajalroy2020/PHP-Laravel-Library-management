@@ -32,7 +32,6 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $data['categoryEdit'] = Category::findOrFail($id);
-        // dd($data);
         return view('dashboard.editCategory', $data);
     }
 

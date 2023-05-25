@@ -6,7 +6,6 @@
         <a href="{{route('categoryStore')}}" class="btn btn-primary">Back</a>
     </div>
 
-     <!-- Modal 2-->
      <div>
         <div class="modal-dialog">
             <form action="{{route('categoryUpdate', $categoryEdit->id)}}" method="POST">

@@ -27,7 +27,7 @@
                 <li class="pt-2"><a href="{{route('adminDashboard')}}">Dashboard</a></li>
                 <li class="pt-2"><a href="{{route('user')}}">User</a></li>
                 <li class="pt-2"><a href="{{route('category')}}">Category</a></li>
-                <li class="pt-2"><a href="">Books</a></li>
+                <li class="pt-2"><a href="{{route('book')}}">Books</a></li>
             </ul>
         </div>
         <div class="w-100 mt-2">
