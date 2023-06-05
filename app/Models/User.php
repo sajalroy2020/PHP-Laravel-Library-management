@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\User;
+use App\Models\Review;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
@@ -51,5 +52,9 @@ class User extends Authenticatable
         static::creating(function(User $user){
             $user->password = Hash::make($user->password);
         });
+    }
+
+    public function reviewes(){
+        return $this->hasMany(Review::class);
     }
 }

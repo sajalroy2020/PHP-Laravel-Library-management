@@ -45,7 +45,6 @@ class CategoryController extends Controller
         return redirect()->back()->withInput()->with('ERROR_MESSAGE', 'something went rong !..');
     }
 
-
     public function destroy($id)
     {
         if (Category::find($id)->delete()) {
@@ -54,3 +53,6 @@ class CategoryController extends Controller
         return redirect()->back()->withInput()->with('ERROR_MESSAGE', 'something went rong !..');
     }
 }
+
+
+

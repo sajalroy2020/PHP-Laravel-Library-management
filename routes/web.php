@@ -4,13 +4,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FavouriteController;
 
 
 // Home or Other page route
 Route::get('/', [HomeController::class,'home'])->name('home');
-Route::get('/single-book', [HomeController::class,'singleBook'])->name('single_book');
+Route::get('/single-book/{id}', [HomeController::class,'singleBook'])->name('single_book');
+Route::get('/category-book/{id}', [HomeController::class,'categoryBook'])->name('categoryBook');
+Route::get('/book-search', [HomeController::class,'search'])->name('search');
+
+
 // Auth route
 Route::get('/sign-up', [UserController::class,'Signup'])->name('signup');
 Route::post('/signupStore', [UserController::class,'SignupStore'])->name('signupStore');
@@ -20,7 +26,10 @@ Route::post('/logout', [UserController::class,'Logout'])->name('logout');
 
 // User route
 Route::middleware(['auth'])->group(function () {
-
+    Route::post('/favourite-store', [FavouriteController::class,'store'])->name('favouriteStore');
+    Route::get('/profile', [HomeController::class,'profile'])->name('profile');
+    Route::get('/favourite-delete/{id}', [FavouriteController::class,'favouriteDelete'])->name('favouriteDelete');
+    Route::post('/review-store', [ReviewController::class,'reviewStore'])->name('reviewStore');
 });
 
 // Admin route

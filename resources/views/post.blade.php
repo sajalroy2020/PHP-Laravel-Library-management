@@ -18,7 +18,7 @@
                 <div class="text-danger">{{$message}}</div>
               @enderror
         </div>
-
+        {{-- JimCorBattShibSana --}}
         <div class="form-outline my-4">
           <input type="text" name="title" class="form-control" value="{{old('title')}}" />
           <label class="form-label" for="form4Example1">Title</label>
@@ -46,3 +46,4 @@
       </form>
     </div>
 @endsection
+
