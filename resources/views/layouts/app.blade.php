@@ -43,7 +43,8 @@
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex gap-1" action="{{route('search')}}" type="get">
-              <input type="search" name="query" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+              <input type="search" id="search" name="query" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+              {{-- <input type="text" id="search" name="search" placeholder="search..."> --}}
               <button type="submit" class="btn btn-success me-3">Search</button>
             </form>
 
@@ -121,5 +122,23 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    {{-- <script>
+        $(document).on('keyup',function(e){
+            e.preventDefault();
+            let search_string = $('#search').val();
+            $.ajax({
+                url:"{{route('search.ptoduct')}}",
+                method:'GET',
+                data:{search_string:search_string},
+                success:function(res){
+                    $('.table-data').html(res);
+                    if(res.status=='nothing_found'){
+                        $('.table-data').html('<span>'+'no data'+'</span>')
+                    }
+                }
+            })
+        })
+    </script> --}}
 </body>
 </html>

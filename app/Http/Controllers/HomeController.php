@@ -44,6 +44,15 @@ class HomeController extends Controller
         $data['categories'] = Category::all();
         $search_text = $_GET['query'];
         $data['books'] = Book::where('title', 'LIKE', '%'.$search_text.'%')->get();
+        // $books = Book::where('title', 'LIKE', '%'.$search_text.'%')->get();
+        // if ($books->count() >= 1) {
+            // return response()->json([
+            //     'status' => 'no data',
+            // ])
+        // }else{
+
+        // }
+
         return view('search', $data);
     }
 

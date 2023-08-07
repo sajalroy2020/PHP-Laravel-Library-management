@@ -48,7 +48,7 @@ class UserController extends Controller
         User::where('id', $activeID)->update(['is_active'=>true]);
 
         Auth::login($user);
-        return redirect()->route('home')->with('SUCCESS_MESSAGE', 'you have been registerd successfully');
+        return redirect()->route('home')->with('SUCCESS_MESSAGE', 'you have been login successfully');
     }
 
     public function Logout(){
